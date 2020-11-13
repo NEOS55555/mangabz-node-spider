@@ -209,7 +209,7 @@ function saveImg (url, params, cookie) {
 		
 		superagent.get(url+'chapterimage.ashx?'+trans(prs))
 			.timeout(timeout)
-			.set('Referer', url)	// 重点是这个，只有当前这个ref是本地址的才会成功，之后你的请求才会成功
+			.set('Referer', url)	
 			// .query(prs)
 			// .set('Cookie', cookie)
 			// .set('User-Agent', ' Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36 Aoyou/UWw7YQlYOVZ9M3haXXN2OLgCJxZ_UrUY8V3G22OqBgD13uvfV4p6DDBNbA==')
