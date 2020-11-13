@@ -1,4 +1,5 @@
 # mangabz-node-spider
+# data文件夹存放可回溯的错误信息，不要轻易修改。
 mangabz漫画nodejs爬虫，保存图片（图片保存在static里）
 ## 使用方法：
 ### 1.到http://www.mangabz.com/ 网站找到一本漫画，然后点进去就可以看到详细列表的页面。复制该地址
