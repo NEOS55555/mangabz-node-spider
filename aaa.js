@@ -110,6 +110,7 @@ class Download {
 				
 			}).catch(err => {
 				log.error('获取第'+pageIndex+'话'+mgIndex+'图参数失败')
+				log.info('如果看到一大堆失败，不要慌，网站抽了，让程序慢慢跑吧！')
 				storage.pushLack(pageIndex, mgIndex)
 				intor(mgIndex+1)
 			});
@@ -246,9 +247,9 @@ function saveImg (url, params, cookie) {
 
 
 
-
-
 const a = new Download()
 a.start('http://www.mangabz.com/54bz/')
+
+
 
 

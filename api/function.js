@@ -210,4 +210,5 @@ exports.log = {
 	success: txt => log('green', txt),
 	error: txt => log('red', txt),
 	tip: txt => log('yellow', txt),
+	info: txt => log('magenta', txt),
 }
