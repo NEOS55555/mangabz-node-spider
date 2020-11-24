@@ -99,6 +99,7 @@ module.exports = (url) => {
 		}
 		// lack
 		pushLack (pageIndex, mgIndex) {
+			return;
 			const murl = this.url
 			this.lack[murl] = this.lack[murl] || {};
 			this.lack[murl][pageIndex] = this.lack[murl][pageIndex] || [];
@@ -115,6 +116,7 @@ module.exports = (url) => {
 
 		}
 		delLack (pageIndex, mgIndex, isRightNow) {
+			return;
 			const murl = this.url
 			this.lack[murl] = this.lack[murl] || {};
 			this.lack[murl][pageIndex] = this.lack[murl][pageIndex] || [];
