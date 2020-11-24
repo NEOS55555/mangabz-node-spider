@@ -81,10 +81,37 @@ exports.simuExec = (fn, max, each=10, isgetError) => {
 // 创建文件夹
 const dirCache={};
 function mkdir(filepath) {
+	filepath = path.resolve(__dirname, filepath);
+    if (!dirCache[filepath] && !fs.existsSync(filepath)) {
+        var pathtmp;
+        dirCache[filepath] = true
+        filepath.split("/").forEach(function(dirname) {
+            if (pathtmp) {
+                pathtmp = path.join(pathtmp, dirname);
+            }
+            else {　　　　　　　　　 //如果在linux系统中，第一个dirname的值为空，所以赋值为"/"
+                if(dirname){
+                    pathtmp = dirname;
+                }else{
+                    pathtmp = "/"; 
+                }
+            }
+            if (!fs.existsSync(pathtmp)) {
+                if (!fs.mkdirSync(pathtmp)) {
+                    return false;
+                }
+            }
+        });
+    }
+    return true;
+}
+/*function mkdir(filepath) {
+	filepath = path.resolve(__dirname, filepath);
+	console.log(filepath)
     const arr=filepath.split('/');
-    let dir='.';
+    let dir=arr[0];
     let f = false
-    for(let i=0;i<arr.length;i++){
+    for(let i=1;i<arr.length;i++){
         dir += '/'+arr[i];
     		// console.log(dir,i,fs.existsSync(dir), dirCache[dir])
         if(!dirCache[dir]&&!fs.existsSync(dir)){
@@ -95,7 +122,7 @@ function mkdir(filepath) {
         }
     }
     return f;
-}
+}*/
 exports.mkdir = mkdir;
 // 将一个数组扁平化
 function flatten(arr) {
@@ -139,14 +166,14 @@ exports.flatten = flatten;
 	})
 }*/
 
-exports.saveFile = function (url, dirname, fileName) {
+exports.saveFile = function (url, dirname, fileName, type) {
 	return new Promise((resolve, reject) => {
-	
+		// console.log('imgurl---', url)
 		superagent
             .get(url)
             .timeout(15000)
             .then(res => {
-            	const fileUrl = `../static/${dirname}/${(fileName)}.jpg`;
+            	const fileUrl = `../static/${dirname}/${(fileName)}.${type}`;
                 fs.writeFile(path.resolve(__dirname, fileUrl), res.body, "binary", function(err) {
                     if (err) {
                     	return reject(err)

@@ -2,39 +2,48 @@
 	"http://www.mangabz.com/54bz/": [
 		{
 			"url": "/m8825/",
-			"maxPageCount": 210
+			"maxPageCount": 210,
+			"isOver": true
 		},
 		{
 			"url": "/m8826/",
-			"maxPageCount": 203
+			"maxPageCount": 203,
+			"isOver": true
 		},
 		{
 			"url": "/m8827/",
-			"maxPageCount": 212
+			"maxPageCount": 212,
+			"isOver": true
 		},
 		{
 			"url": "/m8760/",
-			"maxPageCount": 48
+			"maxPageCount": 48,
+			"isOver": true
 		},
 		{
 			"url": "/m8759/",
-			"maxPageCount": 30
+			"maxPageCount": 30,
+			"isOver": true
 		},
 		{
 			"url": "/m8761/",
-			"maxPageCount": 23
+			"maxPageCount": 23,
+			"isOver": true
 		},
 		{
 			"url": "/m8762/",
-			"maxPageCount": 22
+			"maxPageCount": 22,
+			"isOver": true
 		},
 		{
 			"url": "/m8763/",
-			"maxPageCount": 24
+			"maxPageCount": 24,
+			"isOver": true
 		},
 		{
 			"url": "/m8764/",
-			"maxPageCount": 30
+			"maxPageCount": 30,
+			"isOver": true
 		},
 		{
 			"url": "/m8765/",
@@ -42,7 +51,8 @@
 		},
 		{
 			"url": "/m8766/",
-			"maxPageCount": 24
+			"maxPageCount": 24,
+			"isOver": true
 		},
 		{
 			"url": "/m8767/",
@@ -50,27 +60,33 @@
 		},
 		{
 			"url": "/m8768/",
-			"maxPageCount": 22
+			"maxPageCount": 22,
+			"isOver": true
 		},
 		{
 			"url": "/m8769/",
-			"maxPageCount": 21
+			"maxPageCount": 21,
+			"isOver": true
 		},
 		{
 			"url": "/m8770/",
-			"maxPageCount": 22
+			"maxPageCount": 22,
+			"isOver": true
 		},
 		{
 			"url": "/m8771/",
-			"maxPageCount": 23
+			"maxPageCount": 23,
+			"isOver": true
 		},
 		{
 			"url": "/m8772/",
-			"maxPageCount": 21
+			"maxPageCount": 21,
+			"isOver": true
 		},
 		{
 			"url": "/m8773/",
-			"maxPageCount": 25
+			"maxPageCount": 25,
+			"isOver": true
 		},
 		{
 			"url": "/m8774/",
@@ -78,63 +94,78 @@
 		},
 		{
 			"url": "/m8775/",
-			"maxPageCount": 21
+			"maxPageCount": 21,
+			"isOver": true
 		},
 		{
 			"url": "/m8776/",
-			"maxPageCount": 30
+			"maxPageCount": 30,
+			"isOver": true
 		},
 		{
 			"url": "/m8777/",
-			"maxPageCount": 25
+			"maxPageCount": 25,
+			"isOver": true
 		},
 		{
 			"url": "/m8778/",
-			"maxPageCount": 14
+			"maxPageCount": 14,
+			"isOver": true
 		},
 		{
 			"url": "/m8779/",
-			"maxPageCount": 23
+			"maxPageCount": 23,
+			"isOver": true
 		},
 		{
 			"url": "/m8780/",
-			"maxPageCount": 21
+			"maxPageCount": 21,
+			"isOver": true
 		},
 		{
 			"url": "/m8781/",
-			"maxPageCount": 19
+			"maxPageCount": 19,
+			"isOver": true
 		},
 		{
 			"url": "/m8782/",
-			"maxPageCount": 19
+			"maxPageCount": 19,
+			"isOver": true
 		},
 		{
 			"url": "/m8783/",
-			"maxPageCount": 21
+			"maxPageCount": 21,
+			"isOver": true
 		},
 		{
 			"url": "/m8784/",
-			"maxPageCount": 22
+			"maxPageCount": 22,
+			"isOver": true
 		},
 		{
 			"url": "/m8785/",
-			"maxPageCount": 21
+			"maxPageCount": 21,
+			"isOver": true
 		},
 		{
 			"url": "/m8786/",
-			"maxPageCount": 20
+			"maxPageCount": 20,
+			"isOver": true
 		},
 		{
 			"url": "/m8787/",
-			"maxPageCount": 21
+			"maxPageCount": 21,
+			"isOver": true
 		},
 		{
 			"url": "/m8788/",
-			"maxPageCount": 40
+			"maxPageCount": 40,
+			"isOver": true
 		},
 		{
 			"url": "/m8789/",
-			"maxPageCount": 21
+			"maxPageCount": 21,
+			"isOver": true
 		},
 		{
 			"url": "/m8790/",
@@ -146,19 +177,23 @@
 		},
 		{
 			"url": "/m8792/",
-			"maxPageCount": 19
+			"maxPageCount": 19,
+			"isOver": true
 		},
 		{
 			"url": "/m8793/",
-			"maxPageCount": 22
+			"maxPageCount": 22,
+			"isOver": true
 		},
 		{
 			"url": "/m8794/",
-			"maxPageCount": 19
+			"maxPageCount": 19,
+			"isOver": true
 		},
 		{
 			"url": "/m8795/",
-			"maxPageCount": 22
+			"maxPageCount": 22,
+			"isOver": true
 		},
 		{
 			"url": "/m8796/",
@@ -166,7 +201,8 @@
 		},
 		{
 			"url": "/m8797/",
-			"maxPageCount": 2
+			"maxPageCount": 2,
+			"isOver": true
 		},
 		{
 			"url": "/m8798/",
@@ -174,27 +210,33 @@
 		},
 		{
 			"url": "/m8799/",
-			"maxPageCount": 21
+			"maxPageCount": 21,
+			"isOver": true
 		},
 		{
 			"url": "/m8800/",
-			"maxPageCount": 19
+			"maxPageCount": 19,
+			"isOver": true
 		},
 		{
 			"url": "/m8801/",
-			"maxPageCount": 29
+			"maxPageCount": 29,
+			"isOver": true
 		},
 		{
 			"url": "/m8802/",
-			"maxPageCount": 19
+			"maxPageCount": 19,
+			"isOver": true
 		},
 		{
 			"url": "/m8803/",
-			"maxPageCount": 18
+			"maxPageCount": 18,
+			"isOver": true
 		},
 		{
 			"url": "/m8804/",
-			"maxPageCount": 23
+			"maxPageCount": 23,
+			"isOver": true
 		},
 		{
 			"url": "/m8805/",
@@ -214,11 +256,13 @@
 		},
 		{
 			"url": "/m8809/",
-			"maxPageCount": 15
+			"maxPageCount": 15,
+			"isOver": true
 		},
 		{
 			"url": "/m8810/",
-			"maxPageCount": 21
+			"maxPageCount": 21,
+			"isOver": true
 		},
 		{
 			"url": "/m8811/",
@@ -226,11 +270,13 @@
 		},
 		{
 			"url": "/m8812/",
-			"maxPageCount": 23
+			"maxPageCount": 23,
+			"isOver": true
 		},
 		{
 			"url": "/m8813/",
-			"maxPageCount": 23
+			"maxPageCount": 23,
+			"isOver": true
 		},
 		{
 			"url": "/m8814/",
@@ -250,11 +296,13 @@
 		},
 		{
 			"url": "/m8818/",
-			"maxPageCount": 18
+			"maxPageCount": 18,
+			"isOver": true
 		},
 		{
 			"url": "/m8819/",
-			"maxPageCount": 16
+			"maxPageCount": 16,
+			"isOver": true
 		},
 		{
 			"url": "/m8820/",
@@ -262,7 +310,8 @@
 		},
 		{
 			"url": "/m8821/",
-			"maxPageCount": 20
+			"maxPageCount": 20,
+			"isOver": true
 		},
 		{
 			"url": "/m8958/",
@@ -270,7 +319,8 @@
 		},
 		{
 			"url": "/m8822/",
-			"maxPageCount": 28
+			"maxPageCount": 28,
+			"isOver": true
 		},
 		{
 			"url": "/m8823/",
@@ -282,11 +332,13 @@
 		},
 		{
 			"url": "/m8828/",
-			"maxPageCount": 20
+			"maxPageCount": 20,
+			"isOver": true
 		},
 		{
 			"url": "/m8829/",
-			"maxPageCount": 19
+			"maxPageCount": 19,
+			"isOver": true
 		},
 		{
 			"url": "/m8830/",
@@ -294,11 +346,13 @@
 		},
 		{
 			"url": "/m8831/",
-			"maxPageCount": 20
+			"maxPageCount": 20,
+			"isOver": true
 		},
 		{
 			"url": "/m8832/",
-			"maxPageCount": 23
+			"maxPageCount": 23,
+			"isOver": true
 		},
 		{
 			"url": "/m8959/",
@@ -326,15 +380,18 @@
 		},
 		{
 			"url": "/m8838/",
-			"maxPageCount": 21
+			"maxPageCount": 21,
+			"isOver": true
 		},
 		{
 			"url": "/m8839/",
-			"maxPageCount": 24
+			"maxPageCount": 24,
+			"isOver": true
 		},
 		{
 			"url": "/m8840/",
-			"maxPageCount": 20
+			"maxPageCount": 20,
+			"isOver": true
 		},
 		{
 			"url": "/m8841/",
@@ -342,11 +399,13 @@
 		},
 		{
 			"url": "/m8842/",
-			"maxPageCount": 21
+			"maxPageCount": 21,
+			"isOver": true
 		},
 		{
 			"url": "/m8843/",
-			"maxPageCount": 19
+			"maxPageCount": 19,
+			"isOver": true
 		},
 		{
 			"url": "/m8844/",

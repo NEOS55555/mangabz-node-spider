@@ -1,7 +1,10 @@
 {
+  "version": "0.1.1",
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
-    "mongodb": "^3.5.5",
     "superagent": "^5.2.2"
+  },
+  "scripts": {
+  	"mg": "node mangabz.js"
   }
 }

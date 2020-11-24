@@ -1,5 +1,6 @@
 {
 	"http://www.mangabz.com/54bz/": {
-		"mgIndex": 4
+		"mgIndex": 17,
+		"pageIndex": 11
 	}
 }
