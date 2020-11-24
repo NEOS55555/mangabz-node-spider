@@ -180,7 +180,6 @@ class Download {
 					a++
 				}
 				if (lackArr.length === 0) {
-					console.log('?????')
 					this.storage.setListOverPage(pageIndex, true)
 				}
 				resolve(lackArr)
@@ -225,7 +224,6 @@ class Download {
 				superagent.get(url)
 					.timeout(timeout)
 					.then(res => {
-						// console.log('rrrrrrrrrrrrrrrr')
 						// console.log(res.text)
 						const $ = cheerio.load(res.text)
 						const arr = []

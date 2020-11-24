@@ -1,12 +1,13 @@
 const Download = require('./api/mangabzDownload')
 
-const a = new Download('http://www.mangabz.com/54bz/')
+const url = 'http://www.mangabz.com/54bz/'
+
+const a = new Download(url.trim())
 // 正常下载，没什么太大的作用了
 // a.start()
 
 // 下载缺页
 // a.downLack()
-
 
 
 
