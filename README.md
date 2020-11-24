@@ -6,4 +6,5 @@ mangabz漫画nodejs爬虫，保存图片（图片保存在static里）
 ### 3.到mangabz.js里修改地址即可。
 ### 4.打开该目录下的cmd 然后输入node mangabz.js，就会自动下载了（图片保存在static里）
 
-暂时还没有写错误页面的重下载
+# 2020-11-24
+已支持错误回溯
