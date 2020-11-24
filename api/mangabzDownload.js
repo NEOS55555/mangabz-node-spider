@@ -17,6 +17,9 @@ const log = api.log;
 
 var d;
 
+api.mkdir(`../static`)
+api.mkdir(`../static/manga`)
+
 /*api.readAllFiles(path.resolve(__dirname, '../static/manga/m8826')).then(res => {
 	res = res.map(it => parseInt(it.split('.')[0]))
 	res.sort((a, b) => a - b)
@@ -213,7 +216,7 @@ class Download {
 				// that.storage.setLackArrIndex(lackIndex)
 				// console.log(lackArr)
 				if (lackIndex >= lackArr.length) {
-					log.success('已下载完第'+pageIndex+'话缺页')
+					log.success('已过滤完第'+pageIndex+'话缺页')
 					resolve('ok')
 					return;
 				}
