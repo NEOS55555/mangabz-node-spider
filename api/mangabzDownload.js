@@ -295,7 +295,7 @@ class Download {
 			superagent.get(url)
 				.timeout(timeout)
 				.then(res => {
-					log.success('图片所需要的参数获取成功')
+					// log.success('图片所需要的参数获取成功')
 					const params = this.execParams(res.text)
 				    params.MANGABZ_PAGE = parseInt(mat[1])
 				    resolve(params)
@@ -366,7 +366,7 @@ function saveImg (url, params, dirpath) {
 			.set('Referer', url)	
 			.end(function(err, res) {
 				if (err) {
-					log.error('saveImg-----timeout')
+					log.error('获取图片地址失败！')
 					reject('error')
 					return; 
 				}
@@ -378,7 +378,7 @@ function saveImg (url, params, dirpath) {
 					return;
 				}
 				// console.log(res.text)
-				console.log('图片地址')
+				console.log('图片地址如下：')
 				console.log(d)
 				// console.log(dirpath)
 				// console.log(path.resolve(__dirname, `${dirpath}/${params.MANGABZ_CURL.replace(/\//ig, '')}`))

@@ -172,7 +172,8 @@ exports.saveFile = function (url, dirUrl, fileName, type, refurl) {
 		superagent
 			.get(url)
 			.set('Referer', refurl)
-			.timeout(25000)
+			// .set('User-Agent', ' Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36 Aoyou/UWw7YQlYOVZ9M3haXXN2OLgCJxZ_UrUY8V3G22OqBgD13uvfV4p6DDBNbA==')
+			.timeout(15000)
 			.then(res => {
 				const fileUrl = `${dirUrl}/${(fileName)}.${type}`;
 				// console.log(fileUrl)
