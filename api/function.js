@@ -166,22 +166,24 @@ exports.flatten = flatten;
 	})
 }*/
 
-exports.saveFile = function (url, dirname, fileName, type) {
+exports.saveFile = function (url, dirUrl, fileName, type, refurl) {
 	return new Promise((resolve, reject) => {
 		// console.log('imgurl---', url)
 		superagent
-            .get(url)
-            .timeout(15000)
-            .then(res => {
-            	const fileUrl = `../static/${dirname}/${(fileName)}.${type}`;
-                fs.writeFile(path.resolve(__dirname, fileUrl), res.body, "binary", function(err) {
-                    if (err) {
-                    	return reject(err)
-                    }
-                    resolve('ok')
-                });
-            })
-            .catch(reject);
+			.get(url)
+			.set('Referer', refurl)
+			.timeout(25000)
+			.then(res => {
+				const fileUrl = `${dirUrl}/${(fileName)}.${type}`;
+				// console.log(fileUrl)
+				fs.writeFile(path.resolve(__dirname, fileUrl), res.body, "binary", function(err) {
+						if (err) {
+							return reject(err)
+						}
+						resolve('ok')
+				});
+			})
+			.catch(reject);
 		    
 	})
 }

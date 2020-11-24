@@ -34,57 +34,12 @@ class Download {
 	constructor (url) {
 		this.url = url;
 		this.storage = store(this.url);
-		
+		let nameArr = url.split('/').filter(it => it)
+		const name = nameArr.pop();
+		this.dirpath = `../static/manga/${name}`
+		api.mkdir(this.dirpath)
 	}
-	start () {
-		const that = this;
-		this.getList(this.url).then(list => {
 
-			;(function intor (pageIndex) {
-
-				that.storage.setPageIndex(pageIndex)
-				if (pageIndex >= that.list.length) {
-					log.success('全部下载完成')
-					return;
-				}
-
-				that.getCurrentChapter(pageIndex, that.storage.getMgIndex()).then(v => {
-					// console.log(v)
-					// that.startMgIndex = 1;
-					that.storage.setMgIndex(1)
-					intor(pageIndex + 1)
-				})
-			})(that.storage.getPageIndex())
-		})
-	}
-	downLack () {
-		const that = this;
-		const lackMap = JSON.parse(JSON.stringify(this.storage.getLack()))		// 是个map
-		const lackIdxArr = Object.keys(lackMap);	// 获取lack的key
-		this.getList(this.url).then(list => {
-			// this.pageIndex = 0;
-			// this.mgIndex = 1;	// 当前第几张漫画
-
-			// that.storage.setLackPageIndexIndex(mgIndex)
-			;(function intor (lackIndex) {
-				let pageIndex = lackIdxArr[lackIndex]
-				
-				// that.storage.setLackMapIndex(lackIndex)
-
-				const lackArr = lackMap[pageIndex]
-				if (lackIndex >= lackIdxArr.length) {
-					log.success('全部下载完成')
-					return;
-				}
-
-
-				that.downLackMgByList(pageIndex, lackArr).then(v => {
-					intor(lackIndex + 1)
-				})
-			})(0)
-		})
-		
-	}
 	isAllDownload () {
 		for (let i = 0, len = this.list.length; i< len; i++) {
 			if (!this.list[i].isOver) {
@@ -157,7 +112,7 @@ class Download {
 			}
 
 			const { url, maxPageCount, isOver } = item;
-			api.mkdir(`../static/manga/${url.replace(/\//ig, '')}`)
+			api.mkdir(`${this.dirpath}/${url.replace(/\//ig, '')}`)
 
 			if (isOver) {
 				resolve([])
@@ -165,7 +120,7 @@ class Download {
 				return;
 			}
 
-			api.readAllFiles(path.resolve(__dirname, '../static/manga'+url)).then(res => {
+			api.readAllFiles(path.resolve(__dirname,  `${this.dirpath}${url}`)).then(res => {
 				res = res.map(it => parseInt(it.split('.')[0]))
 				res.sort((a, b) => a - b)
 
@@ -282,15 +237,6 @@ class Download {
 		console.log(`开始下载第${pageIndex}话，第${mgIndex}页漫画`)
 		return new Promise((resolve) => {
 
-			/*api.setRandTimeout(() => {
-			// if (Math.random() > .4) {
-				isLackType && that.storage.delLack(pageIndex, mgIndex);
-				// }
-				resolve()
-			}, 5000, 6000)
-
-			return;*/
-
 			var murl = that.getShowUrl(mgIndex, url, maxPageCount);
 			if (mgIndex > maxPageCount) {
 				resolve('ok')
@@ -306,7 +252,7 @@ class Download {
 					// params = {...params, MANGABZ_PAGE: mgIndex}
 
 				api.setRandTimeout(() => {
-					saveImg(murl, params, that.cookie).then(res => {
+					saveImg(murl, params, that.dirpath).then(res => {
 						// console.log('--------------------------------')
 						console.log('continue，继续下一次获取图片');
 						isLackType && that.storage.delLack(pageIndex, mgIndex);
@@ -397,7 +343,8 @@ function trans (map) {
 
 
 
-function saveImg (url, params, cookie) {
+function saveImg (url, params, dirpath) {
+
 	return new Promise((resolve, reject) => {
 		// var url = 
 		const prs = {
@@ -410,22 +357,20 @@ function saveImg (url, params, cookie) {
         	_sign: params.MANGABZ_VIEWSIGN 
 		}
 
-		
-		// console.log(prs)		
-		// return;
-		// path.resolve(__dirname, fileUrl)
-		api.mkdir(`../static/manga/${params.MANGABZ_CURL.replace(/\//ig, '')}`)
+		api.mkdir(`${dirpath}/${params.MANGABZ_CURL.replace(/\//ig, '')}`)
 		console.log('开始获取图片地址')
-		console.log(url+'chapterimage.ashx?'+trans(prs))
+		// console.log(url+'chapterimage.ashx?'+trans(prs))
 		
 		superagent.get(url+'chapterimage.ashx?'+trans(prs))
 			.timeout(timeout)
 			.set('Referer', url)	
-			// .query(prs)
-			// .set('Cookie', cookie)
-			// .set('User-Agent', ' Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36 Aoyou/UWw7YQlYOVZ9M3haXXN2OLgCJxZ_UrUY8V3G22OqBgD13uvfV4p6DDBNbA==')
-			.then(function(res) {
-				
+			.end(function(err, res) {
+				if (err) {
+					log.error('saveImg-----timeout')
+					reject('error')
+					return; 
+				}
+
 				eval(res.text);
 				if (!res.text) {
 					reject('error')
@@ -435,13 +380,16 @@ function saveImg (url, params, cookie) {
 				// console.log(res.text)
 				console.log('图片地址')
 				console.log(d)
-
+				// console.log(dirpath)
+				// console.log(path.resolve(__dirname, `${dirpath}/${params.MANGABZ_CURL.replace(/\//ig, '')}`))
+				// return;
 				api.saveFile(
 					encodeURI(d[0]), 
-					`manga/${params.MANGABZ_CURL.replace(/\//ig, '')}`,
+					path.resolve(__dirname, `${dirpath}/${params.MANGABZ_CURL.replace(/\//ig, '')}`),
 					// `manga/${params.MANGABZ_CURL.replace(/\//ig, '')}/${params.MANGABZ_CTITLE.replace(/\s/ig, '')}`,
 					params.MANGABZ_PAGE,
-					'jpg'
+					'jpg',
+					url
 				).then(res => {
 					log.success('图片保存成功！')
 					resolve()
@@ -451,10 +399,11 @@ function saveImg (url, params, cookie) {
 					reject('error')
 				})
 
-			}).catch(err => {
-				log.error('saveImg-----timeout')
-				reject('error')
 			})
+			// .query(prs)
+			// .set('Cookie', cookie)
+			// .set('User-Agent', ' Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36 Aoyou/UWw7YQlYOVZ9M3haXXN2OLgCJxZ_UrUY8V3G22OqBgD13uvfV4p6DDBNbA==')
+			
 	})
 }
 

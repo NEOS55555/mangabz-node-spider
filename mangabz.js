@@ -1,6 +1,6 @@
 const Download = require('./api/mangabzDownload')
 
-const url = 'http://www.mangabz.com/54bz/'
+const url = 'http://www.mangabz.com/38bz/'
 
 const a = new Download(url.trim())
 // 正常下载，没什么太大的作用了
