@@ -175,30 +175,46 @@ class Download {
 				return 
 			} else {
 				console.log('---getList---')
+				
+				;(function intor () {
 
-				superagent.get(url)
-					.timeout(timeout)
-					.then(res => {
-						// console.log(res.text)
-						const $ = cheerio.load(res.text)
-						const arr = []
-						const $as = $('#chapterlistload').find('a')
-						for (let i = $as.length;i--;) {
-							arr.push({
-								url: $as.eq(i).attr('href'),
-								maxPageCount: parseInt($as.eq(i).find('span').text().replace(/（|）/ig, ''))
-							})
-						}
-						that.list = arr;
-						resolve(arr);
-						this.storage.setList(arr, true)
+					superagent.get(url)
+						.timeout(25000)
+						.end((err, res) => {
+							if (err) {
+								log.error('获取列表失败，网站响应超时，即将再次获取！')
+
+								setTimeout(function () {
+									intor();
+								}, 1099)
+								return;
+							}
+							log.info('列表已获取')
+
+							// console.log(res.text)
+							const $ = cheerio.load(res.text)
+							const arr = []
+							const $as = $('#chapterlistload').find('a')
+							for (let i = $as.length;i--;) {
+								arr.push({
+									url: $as.eq(i).attr('href'),
+									maxPageCount: parseInt($as.eq(i).find('span').text().replace(/（|）/ig, ''))
+								})
+							}
+							that.list = arr;
+							that.storage.setList(arr, true)
+							resolve(arr);
+						})
+					})();
+
+					/* .then(res => {
 						
 					})
 					.catch(err => {
 						// that.getList(url)
 						log.error('获取列表失败，网站响应超时，建议过会重启！')
 						// intor()
-					})
+					}) */
 				
 			}
 		})
