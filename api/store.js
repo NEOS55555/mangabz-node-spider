@@ -2,20 +2,23 @@ const fs = require('fs');
 const path = require('path');
 const api = require('./function.js')
 
-// 一些基础的参数配置
+api.mkdir(`../data`)
 
+// 一些基础的参数配置
 const pageUrl = path.resolve(__dirname, '../data/page.js')	
 const listUrl = path.resolve(__dirname, '../data/list.js')	// { url: [] } 列表，不用每次都获取
 const lackUrl = path.resolve(__dirname, '../data/lack.js')	// { url: { pageIndex: [mgIndex], pageIndex: [mgIndex] } }	// 缺少的图片第几张
 
 const getData = url => {
-	/*if (url === pageUrl) {
-		console.log('----------getPageData------------')
-		console.log(pageUrl)
-		console.log(fs.readFileSync(url).toString())
-	}*/
-	return JSON.parse(fs.readFileSync(url).toString() || '{}')
+	var d = {};
+	try {
+		d = JSON.parse(fs.readFileSync(url).toString() || '{}')
+	} catch (e) {
+
+	}
+	return d;
 }
+
 
 const setData = (url, text) => fs.writeFile(url, text, err => {
 	if (err) {

@@ -20,25 +20,6 @@ var d;
 api.mkdir(`../static`)
 api.mkdir(`../static/manga`)
 
-/*api.readAllFiles(path.resolve(__dirname, '../static/manga/m8826')).then(res => {
-	res = res.map(it => parseInt(it.split('.')[0]))
-	res.sort((a, b) => a - b)
-
-	var arr = [];
-	var a = 1, b = 0;
-	while(a <= 203) {
-		if (res[b] === a) {
-			b++;
-		} else {
-			arr.push(a)
-		}
-		a++
-	}
-	
-	console.log(arr)
-	
-})*/
-
 /*var storage = store('http://www.mangabz.com/54bz/');
 console.log(storage.setMgIndex(21, true))
 // console.log(storage.getMgIndex())*/
@@ -75,7 +56,6 @@ class Download {
 				})
 			})(that.storage.getPageIndex())
 		})
-		
 	}
 	downLack () {
 		const that = this;
