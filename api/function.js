@@ -49,66 +49,7 @@ function mkdir(filepath) {
   }
   return true
 }
-/*function mkdir(filepath) {
-	filepath = path.resolve(__dirname, filepath);
-	console.log(filepath)
-    const arr=filepath.split('/');
-    let dir=arr[0];
-    let f = false
-    for(let i=1;i<arr.length;i++){
-        dir += '/'+arr[i];
-    		// console.log(dir,i,fs.existsSync(dir), dirCache[dir])
-        if(!dirCache[dir]&&!fs.existsSync(dir)){
-            dirCache[dir]=true;
-            fs.mkdirSync(dir);
-            // console.log(dir+'创建成功')
-            f = true;
-        }
-    }
-    return f;
-}*/
 exports.mkdir = mkdir
-// 将一个数组扁平化
-function flatten(arr) {
-  return arr.reduce(function (prev, next) {
-    return prev.concat(Array.isArray(next) ? flatten(next) : next)
-  }, [])
-}
-exports.flatten = flatten
-
-// 保存文件到本地
-// 这个非常容易卡住不动
-/*exports.saveFile = function (url, dirname, fileName) {
-	return new Promise((resolve, reject) => {
-		superagent.head(url, (err, res, body) => {
-			const ntm = url.slice(url.lastIndexOf('/')+1).split('[www.555x.org]')
-			let name = decodeURI(ntm[ntm.length - 1])
-
-			const fileType = name.slice(name.lastIndexOf('.'))
-			name = name.slice(0, name.lastIndexOf('.'))
-
-			const fileUrl = `/static/${dirname}/${(fileName)}.jpg`;
-			// console.log(path.resolve(__dirname, fileUrl))
-			// return;
-		    try {
-		        let startTime = new Date().getTime();
-		        if (err) {
-		        	console.log(err)
-		        	reject(err)
-		        	return;
-		        }
-		        // console.log(url)
-		        !err && superagent(url).timeout(15000).on('response', () => {
-		            resolve(fileUrl)
-		        }).pipe(fs.createWriteStream(path.resolve(__dirname, '..'+fileUrl)));
-		        // superagent.get(targetUrl).pipe(fs.createWriteStream(__dirname+'/compassedu/50850.html'));
-		        
-		    } catch (err) {
-		    	console.log(err)
-		    }
-		});
-	})
-}*/
 
 exports.saveFile = function (url, dirUrl, fileName, type, refurl) {
   return new Promise((resolve, reject) => {
