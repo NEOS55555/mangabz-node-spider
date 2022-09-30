@@ -6,6 +6,6 @@
     "superagent": "^5.2.2"
   },
   "scripts": {
-  	"mg": "node mangabz.js"
+    "mg": "node mangabz.js"
   }
 }
