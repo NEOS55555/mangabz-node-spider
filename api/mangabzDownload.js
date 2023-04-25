@@ -9,7 +9,7 @@ const path = require('path')
 const store = require('./store')
 
 const timeout = 15000 // 响应超时的时间
-const HOST = 'http://www.mangabz.com'
+const HOST = 'https://www.mangabz.com'
 const log = api.log
 
 var d
